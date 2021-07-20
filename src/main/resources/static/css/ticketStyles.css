@@ -1,0 +1,35 @@
+/* 
+    Created on : Jul 16, 2021, 7:32:25 PM
+    Author     : Sameh
+*/
+
+
+nav .navbar-nav li a{
+    color: white !important;
+    font-weight: bold;
+}
+
+nav .navbar-nav li a:hover{
+    color: black !important;
+}
+
+.float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+	background-color: #b51921;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+
+}
+
+.my-float{
+	margin-top:22px;
+}
+
+.info{
+    color: gray;
+}

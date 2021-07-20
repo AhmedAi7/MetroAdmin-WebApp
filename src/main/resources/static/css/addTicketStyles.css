@@ -1,0 +1,33 @@
+/* 
+    Created on : Jul 16, 2021, 8:55:29 PM
+    Author     : Sameh
+*/
+
+nav .navbar-nav li a{
+    color: white !important;
+    font-weight: bold;
+}
+
+nav .navbar-nav li a:hover{
+    color: black !important;
+}
+
+.sub{
+    border: 1px solid #b51921;
+    font-size: 15px;
+    height: 30px;
+    width: 70px;
+    background: #b51921;
+    border-radius: 8px ;
+    color: white;
+    margin: 5px;
+}
+
+.custome {
+    border: 1px solid #000;
+    border-radius: 10px;
+    width: 200px;
+    height: 38px;
+    font-size: 15px;
+    margin: 3px;
+}

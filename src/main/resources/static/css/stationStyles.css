@@ -1,0 +1,55 @@
+/* 
+    Created on : Jul 16, 2021, 1:43:38 AM
+    Author     : Sameh
+*/
+
+nav .navbar-nav li a{
+    color: white !important;
+    font-weight: bold;
+}
+
+nav .navbar-nav li a:hover{
+    color: black !important;
+}
+
+h1 {
+    font-size: 700%; 
+}
+.btn-primary {
+    border-color: #FFFFFF;   
+    background-color: #bf2121; 
+    border-radius: 20px;
+    margin: 5px;
+}
+.btn-primary:hover{
+    color: #fff;
+    background-color: #000000;
+    border-color: black;
+}
+
+hr {
+    margin-bottom: 2px;
+    background: whitesmoke;
+
+}
+.custome {
+    border: 1px solid #000;
+    width: 200px;
+    height: 38px;
+    font-size: 15px;
+}
+
+.sub{
+    border: 1px solid #b51921;
+    font-size: 15px;
+    height: 38px;
+    width: 80px;
+    background: #b51921;
+    border-radius: 8px ;
+    color: white;
+}
+label{
+    
+    color: white;
+}
+

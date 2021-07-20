@@ -1,0 +1,36 @@
+/* 
+    Created on : Jul 16, 2021, 1:40:22 AM
+    Author     : Sameh
+*/
+
+nav .navbar-nav li a{
+    color: white !important;
+    font-weight: bold;
+}
+
+nav .navbar-nav li a:hover{
+    color: black !important;
+}
+
+h1 {
+    font-size: 700%; 
+}
+.btn-primary {
+    border-color: #FFFFFF;   
+    background-color: #bf2121; 
+    border-radius: 20px;
+    margin: 5px;
+}
+.btn-primary:hover{
+    color: #fff;
+    background-color: #000000;
+    border-color: black;
+}
+
+hr {
+    margin-bottom: 2px;
+    background: whitesmoke;
+
+}
+
+

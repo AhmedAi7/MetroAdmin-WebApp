@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <title>Home</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" th:href="@{/css/homeStyles.css}">
+        
+    </head>
+    <body th:background="@{/images/bg.jpg}">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-secondary ">
+            <div class="container-fluid">
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <div class="container">
+                        <a class="navbar-brand" href="#" style="float: left">
+                            <img th:src="@{/images/metro_logo.png}" alt="" width="50" height="45">
+                        </a>
+                        <h5 th:text="${name}" style="color: white; margin-top: 13px;"></h5>
+                    </div>
+
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/Home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Station">Stations</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Subscription">Subscription</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/BasicTicket">Tickets</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="logout" >Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+        <br><br><br><br><br><br><br><br>
+    <Center>
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h1 style="color: red">METRO</h1>
+                <p style="color: white" >Add and modify metro tickets, lines and services </p>
+
+                <a href="/Station" class="btn btn-primary btn-lg">Stations</a>
+                <a href="/Subscription" class="btn btn-primary btn-lg">Subscription</a>
+                <a href="/BasicTicket" class="btn btn-primary btn-lg">Tickets</a>
+                
+            </div>
+        </div>
+    </Center>
+
+</body>
+</html>
