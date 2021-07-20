@@ -32,7 +32,6 @@ public class AdminController {
     @GetMapping("/login")
     public String Getlogin()
     {
-        System.out.println("TEST");
         return "login";
     }
 
