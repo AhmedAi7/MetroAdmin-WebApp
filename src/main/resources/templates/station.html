@@ -37,7 +37,7 @@
                     <a class="nav-link" href="/BasicTicket">Tickets</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="login.html" >Logout</a>
+                    <a class="nav-link" href="logout" >Logout</a>
                 </li>
             </ul>
         </div>
@@ -46,7 +46,11 @@
 
 
 <br><br><br>
+<center th:if="${message != null}">
+    <h3 style="color: green;font-weight: bold;" th:text="${message}"></h3>
+</center>
 
+<br><br>
 
 <div class="table-responsive">
     <table class="table table-hover table-dark">
@@ -62,56 +66,28 @@
             <th scope="col"> </th>
         </tr>
         </thead>
-        <tbody>
-        <tr>
-            <td>Cairo uni</td>
-            <td>22612.2265.461</td>
-            <td>561.45.94965</td>
-            <td>1</td>
-            <td>2</td>
-            <td></td>
-            <td>Bohos,XXXXXXXXXXX,YYYYYYYYYY,ZZZZZZZZZZ</td>
-            <td><a href="#">Edit</a></td>
-        </tr>
-        <tr>
-            <td>Bohos</td>
-            <td>22612.2265.461</td>
-            <td>561.45.94965</td>
-            <td>1</td>
-            <td>2</td>
-            <td>Cairo</td>
-            <td>Dokki</td>
-            <td><a href="#">Edit</a></td>
-        </tr>
-        <tr>
-            <td>Dokki</td>
-            <td>22612.2265.461</td>
-            <td>561.45.94965</td>
-            <td>1</td>
-            <td>2</td>
-            <td>Bohos</td>
-            <td>Opera</td>
-            <td><a href="#">Edit</a></td>
-        </tr>
-        <tr>
-            <td>Opera</td>
-            <td>22612.2265.461</td>
-            <td>561.45.94965</td>
-            <td>1</td>
-            <td>2</td>
-            <td>Dokki</td>
-            <td>Sadat</td>
-            <td><a href="#">Edit</a></td>
-        </tr>
-        <tr>
-            <td>Sadat</td>
-            <td>22612.2265.461</td>
-            <td>561.45.94965</td>
-            <td>1</td>
-            <td>2</td>
-            <td>Opera, XXXXX ,YYYYY ,ZZZZZZ</td>
-            <td> </td>
-            <td><a href="#">Edit</a></td>
+        <tbody th:if="${stations != null}">
+        <tr th:each="item : ${stations}">
+            <td th:text="${item.getName()}"></td>
+            <td th:text="${item.getLongitude()}"></td>
+            <td th:text="${item.getLatitude()}"></td>
+            <td th:if="${item.getLines() != null}">
+                <ul th:each="line : ${item.getLines()}">
+                    <dt th:text="${line.getId()}"></dt>
+                </ul>
+            </td>
+            <td th:text="${item.getRegion()}"></td>
+            <td th:if="${item.getPrevious() != null}">
+                <ul th:each="previous : ${item.getPrevious()}">
+                    <dt th:text="${previous.getName()}"></dt>
+                </ul>
+            </td>
+            <td th:if="${item.getAfter() != null}">
+                <ul th:each="after : ${item.getAfter()}">
+                    <dt th:text="${after.getName()}"></dt>
+                </ul>
+            </td>
+            <td><a th:href="@{'/EditStation/' + ${item.getId()}}">Edit</a></td>
         </tr>
         </tbody>
     </table>
