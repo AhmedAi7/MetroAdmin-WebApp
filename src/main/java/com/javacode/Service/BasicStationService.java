@@ -214,10 +214,16 @@ public class BasicStationService implements IBasicStationService {
             station.setLatitude(newStation.getLatitude());
         if(newStation.getLongitude() != null)
             station.setLongitude(newStation.getLongitude());
-        if(newStation.getLines() != null)
-            station.setLines(newStation.getLines());
+        if(newStation.getRegion() != null)
+            station.setRegion(newStation.getRegion());
         stationRepo.save(station);
         return true;
+    }
+
+    @Override
+    public Station getStation(Integer id)
+    {
+        return stationRepo.findById(id).get();
     }
 
 }
