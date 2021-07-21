@@ -40,7 +40,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="login.html" >Logout</a>
+                    <a class="nav-link" href="logout" >Logout</a>
                 </li>
             </ul>
         </div>
@@ -58,15 +58,15 @@
     <div th:each="item : ${subscriptions}">
         <div class="card" style="width: 18rem;border: 2px solid gold;float: left; margin: 20px">
     <div class="card-body">
-        <h5 class="card-title" th:text="${item.getPrice()}"></h5>
-        <h5 class="card-title"> EGP</h5>
+        <h5 class="card-title" style="float: left;" th:text="${item.getPrice()}"></h5>
+        <h5 class="card-title">&nbsp; EGP</h5>
         <br>
-        <h6 class="card-subtitle mb-2 text-muted" th:text="${item.gettrips_num()}"></h6>
-        <h6 class="card-subtitle mb-2 text-muted"> Trips</h6>
-        <p style="float: left;margin-right: 20px;" class="card-subtitle mb-2 text-muted" th:text="${item.getregion_num()}"></p>
-        <p style="float: left;margin-right: 20px;" class="card-subtitle mb-2 text-muted"> Regions</p>
-        <p class="card-subtitle mb-2 text-muted" th:text="${item.getmonths_num()}"></p>
-        <p class="card-subtitle mb-2 text-muted"> Months</p>
+        <h6 style="float: left" class="card-subtitle mb-2 text-muted"  th:text="${item.gettrips_num()}"></h6>
+        <h6 class="card-subtitle mb-2 text-muted">&nbsp; Trips</h6>
+        <h6 style="float: left;" class="card-subtitle mb-2 text-muted" th:text="${item.getregion_num()}"></h6>
+        <h6 class="card-subtitle mb-2 text-muted"> Regions</h6>
+        <h6 style="float: left;" class="card-subtitle mb-2 text-muted" th:text="${item.getmonths_num()}"></h6>
+        <h6 class="card-subtitle mb-2 text-muted">&nbsp; Months</h6>
         <a th:href="@{'/DeleteSubscription/' + ${item.getSubscription_id()}}" class="card-link" style="color: red">Delete</a>
         <a th:href="@{'/EditSubscription/' + ${item.getSubscription_id()}}" class="card-link">Edit</a>
     </div>
