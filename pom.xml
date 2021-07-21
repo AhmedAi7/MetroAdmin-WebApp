@@ -14,7 +14,7 @@
     <name>metroapp</name>
     <description>APIS of Metro Application</description>
     <properties>
-        <java.version>11</java.version>
+        <java.version>3.8.1</java.version>
     </properties>
     <dependencies>
         <dependency>
