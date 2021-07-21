@@ -5,9 +5,7 @@ import com.javacode.Interface.IStationService;
 import com.javacode.Model.Line;
 import com.javacode.Model.Station;
 import com.javacode.Reporsitory.LineRepo;
-import com.javacode.Reporsitory.StationRepo;
 import com.javacode.Service.LineService;
-import com.javacode.payload.request.StationRequest;
 import com.javacode.payload.request.UpdateStationRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -56,9 +54,7 @@ public class StationController {
     public String goToStation(Model model)
     {
         List<Station> stations = stationService.getAllStations();
-        List<Line> lines = lineService.getAllLines();
         model.addAttribute("stations", stations);
-        model.addAttribute("lines", lines);
         return "station";
     }
 
