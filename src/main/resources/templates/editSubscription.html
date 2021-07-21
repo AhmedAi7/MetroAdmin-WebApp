@@ -40,7 +40,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="login.html" >Logout</a>
+                    <a class="nav-link" href="logout" >Logout</a>
                 </li>
             </ul>
         </div>
@@ -53,22 +53,22 @@
         <div class="card-body">
             <h4 class="card-title">Edit Subscription</h4>
             <form method="post" th:action="@{/SaveSubscription}" th:object="${subscription}">
-                <label style="margin-right:80px;">ID: </label>
-                <input class="custome" type="text" th:field="*{id}" readonly="readonly">
+                <label style="margin-right:95px;">ID: </label>
+                <input class="custome" type="text" th:field="*{subscription_id}" readonly="readonly">
 
                 <label style="margin-right: 30px;">No. of Trips: </label>
-                <input class="custome" type="text" name="subTrips" th:field="*{gettrips_num()}">
+                <input class="custome" type="text" name="subTrips" th:field="*{trips_num}">
                 <br>
-                <label style="margin-right:60px;">Price: </label>
-                <input class="custome" type="text" name="subPrice" th:field="*{getPrice()}" >
+                <label style="margin-right:75px;">Price: </label>
+                <input class="custome" type="text" name="subPrice" th:field="*{price}" >
                 <br>
                 <label style="margin-right: 8px;">No. of Months: </label>
-                <input class="custome" type="text" name="subMonths" th:field="*{getmonths_num()}">
+                <input class="custome" type="text" name="subMonths" th:field="*{months_num}">
                 <br>
                 <label style="margin-right: 8px;">No. of Regions: </label>
-                <input class="custome" type="text" name="subRegions" th:field="*{getregion_num()}">
+                <input class="custome" type="text" name="subRegions" th:field="*{region_num}">
                 <br>
-                <input class="sub" type="submit" value="submit">
+                <input class="sub" type="submit" value="Save">
             </form>
         </div>
     </div>
