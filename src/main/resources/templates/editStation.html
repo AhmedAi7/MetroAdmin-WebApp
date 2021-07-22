@@ -40,7 +40,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="login.html" >Logout</a>
+          <a class="nav-link" href="logout" >Logout</a>
         </li>
       </ul>
     </div>
@@ -48,66 +48,68 @@
 </nav>
 
 <br><br><br><br><br><br><br>
+<form method="post" th:action="@{/SaveStation}" th:object="${station}">
 
-<form method="get" action="">
-
-  <div>
-    <label style="margin-left: 335px">Station name</label>
-    <label style="margin-left: 135px">Longitude</label>
-    <label style="margin-left: 160px">Latitude</label>
-    <label style="margin-left: 175px">Region</label>
+  <div style="margin-left: 130px;float: left">
+    <label style="margin-left: 30px">ID</label>
+    <br>
+    <input class="custome" style="margin-left: 30px" readonly="readonly" type="text" name="id" th:field="*{id}">
   </div>
-  <center>
-    <div>
-      <input class="custome" style="margin-left: 30px" type="text" name="Station_name" placeholder="Station name" >
-      <input class="custome" style="margin-left: 30px" type="text" name="longitude" placeholder="Longitude" >
-      <input class="custome" style="margin-left: 30px;" type="text" name="latitude" placeholder="Latitude" >
-      <input class="custome" style="margin-left: 30px;" type="text" name="Region" placeholder="Region" >
+    <div style="margin-left: 20px;float: left">
+      <label style="margin-left: 30px"> Station Name</label>
+      <br>
+      <input class="custome" style="margin-left: 30px" type="text" name="station_name" th:field="*{name}">
+    </div>
+    <div style="margin-left: 20px;float: left">
+      <label style="margin-left: 30px">Longitude</label>
+      <br>
+      <input class="custome" style="margin-left: 30px" type="text" name="longitude" th:field="*{longitude}">
+    </div>
+    <div  style="margin-left: 20px;float: left">
+      <label style="margin-left: 30px">Latitude</label>
+    <br>
+      <input class="custome" style="margin-left: 30px;" type="text" name="latitude" th:field="*{latitude}">
+    </div>
+      <div  style="margin-left: 20px;float: left">
+    <label style="margin-left: 30px">No. of Regions</label>
+      <br>
+      <input class="custome" style="margin-left: 30px;" type="text" name="region" th:field="*{region}" >
     </div>
 
-  </center>
 
-  <br><br><br>
-  <hr style="width:40%; border: 1px solid #bf2121">
-
-  <br><br><br>
+  <br><br><br><br><br><br><br><br>
 
   <div style="margin-left: 445px;float: left">
     <label>Enter line </label>
     <br>
-    <select class="selectpicker" data-live-search="true" >
-      <option value="1">first line</option>
-      <option value="2">sec line</option>
-      <option value="3">third line</option>
+    <select class="selectpicker" data-live-search="true" name="line_num">
+      <option disabled selected value th:each="item : ${station.getLines()}" th:text="${item.getId()}"></option>
     </select>
   </div>
 
-
-  <div style="margin-left:  20px;float: left">
-    <label>Previous station </label>
+  <div style="margin-left:  20px;float: left" th:if="${station.getPrevious() != null}">
+    <label>Previous station</label>
     <br>
-    <select class="selectpicker" data-live-search="true" >
-      <option value="1">bohos</option>
-      <option value="2">sadat</option>
-      <option value="3">opera</option>
+    <select class="selectpicker" data-live-search="true" name="previous_station">
+      <option disabled selected value th:each="item : ${station.getPrevious()}" th:text="${item.getName()}"></option>
     </select>
   </div>
 
-  <div style="margin-left:  20px;float: left">
+  <div style="margin-left:  20px;float: left" th:if="${station.getAfter() != null}">
     <label>Next station</label>
     <br>
-    <select class="selectpicker" data-live-search="true" >
-      <option value="1">bohos</option>
-      <option value="2">sadat</option>
-      <option value="3">opera</option>
+    <select class="selectpicker" data-live-search="true" name="next_station">
+      <option disabled selected value th:each="item : ${station.getAfter()}" th:text="${item.getName()}"></option>
     </select>
   </div>
 
   <br><br><br>
   <center>
     <br><br>
-    <input class="sub" type="submit" value="submit">
+    <input class="sub" type="submit" value="Save">
   </center>
 </form>
+
+
 </body>
 </html>

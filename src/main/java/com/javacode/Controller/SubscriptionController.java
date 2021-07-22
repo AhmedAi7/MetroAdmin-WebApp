@@ -48,6 +48,7 @@ public class SubscriptionController {
     @RequestMapping("/EditSubscription/{id}")
     public String goToEditSubscription(Model model, @PathVariable(name = "id") Integer id)
     {
+        System.out.println(id); 
         Subscription subscription = getSubscription(id);
         model.addAttribute("subscription", subscription);
         return "editSubscription";

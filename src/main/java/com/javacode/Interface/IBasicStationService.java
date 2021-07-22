@@ -12,4 +12,5 @@ public interface IBasicStationService {
     public boolean addAfterStation(String stationName,double latitude,double longitude,Integer lineID,String afterStation, Integer region);
     public boolean addFirstLineStation(String stationName,double latitude,double longitude,Integer lineID, Integer region);
     public boolean updateStation(Integer id,Station newStation);
+    public Station getStation(Integer id);
 }

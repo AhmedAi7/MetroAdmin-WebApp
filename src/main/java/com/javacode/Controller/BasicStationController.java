@@ -1,6 +1,7 @@
 package com.javacode.Controller;
 
 import com.javacode.Interface.IBasicStationService;
+import com.javacode.Model.Station;
 import com.javacode.payload.request.UpdateStationRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -85,15 +86,31 @@ public class BasicStationController {
             return "Station Failed";
     }
 
-    @RequestMapping("/UpdateStation")
-    public ResponseEntity<?> updateStation(@RequestBody UpdateStationRequest updateStationRequest)
+    @RequestMapping("/EditStation/{id}")
+    public String goToEditStation(Model model, @PathVariable(name = "id") Integer id)
     {
-        Map<String, String> map = new HashMap<>();
+        model.addAttribute("station", basicStationService.getStation(id));
+        return "editStation";
+    }
+
+    @RequestMapping("/SaveStation")
+    public String saveStation(Model model, @ModelAttribute("station") Station station)
+    {
+        UpdateStationRequest updateStationRequest = new UpdateStationRequest();
+        updateStationRequest.setStation(station);
+        updateStationRequest.setId(station.getId());
+        String message = updateStation(updateStationRequest);
+        model.addAttribute("message", message);
+        return "redirect:/Station";
+    }
+
+    public String updateStation(UpdateStationRequest updateStationRequest)
+    {
         if(basicStationService.updateStation(updateStationRequest.getId(),updateStationRequest.getStation()))
-            map.put("message", "success");
-        else
-            map.put("message", "failed");
-        return new ResponseEntity<>(map, HttpStatus.OK);
+            return "Station Updated Successfully";
+
+        return "Station Failed";
+
     }
 }
 
