@@ -31,17 +31,13 @@ public class SubscriptionService implements ISubscriptionService {
     @Override
     public boolean addSubscription(Subscription User_data)
     {
-        List<Subscription> subscriptions = subscriptionRepo.findAll();
-        for(Subscription subscription : subscriptions)
-        {
-            if(subscription.getSubscription_id()==User_data.getSubscription_id())
-            {
-                return false;
-            }
+        try {
+            subscriptionRepo.save(User_data);
+            return true;
         }
-        subscriptionRepo.save(User_data);
-
-        return false;
+        catch (Exception e){
+            return false;
+        }
     }
 
     @Override
@@ -61,8 +57,14 @@ public class SubscriptionService implements ISubscriptionService {
 
     @Override
     public boolean deleteSubscription(int id) {
-        subscriptionRepo.deleteById(id);
-        return true;
+        try {
+            subscriptionRepo.deleteById(id);
+            return true;
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
     }
 
     @Override
