@@ -8,18 +8,25 @@ import java.util.Set;
 @Entity
 @Table(name="subscription")
 public class Subscription {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer subscription_id;
-
     private Integer trips_num;
     private Integer region_num;
     private Integer months_num;
     private Integer price;
 
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public Integer getSubscription_id() {
+        return subscription_id;
+    }
+
+    public void setSubscription_id(Integer subscription_id) {
+        this.subscription_id = subscription_id;
+    }
+
     public Subscription()
     {
-
     }
 
     public Subscription(Integer subscription_id, Integer trips_num, Integer region_num, Integer months_num, Integer price) {
@@ -60,14 +67,6 @@ public class Subscription {
 
     public void setPrice(Integer price) {
         this.price = price;
-    }
-    public int getSubscription_id() {
-        return subscription_id;
-    }
-
-
-    public void setSubscription_id(int subscription_id) {
-        this.subscription_id = subscription_id;
     }
 
 }
