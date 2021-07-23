@@ -51,8 +51,13 @@ public class SubscriptionService implements ISubscriptionService {
         sub.setregion_num(subscription.getregion_num());
         sub.setmonths_num(subscription.getmonths_num());
         sub.settrips_num(subscription.gettrips_num());
-        subscriptionRepo.save(sub);
-        return true;
+        try {
+            subscriptionRepo.save(sub);
+            return true;
+        }
+        catch (Exception e){
+            return false;
+        }
     }
 
     @Override

@@ -58,7 +58,7 @@ public class AdminController {
     public String logout()
     {
         SecurityContextHolder.clearContext();
-        return "index";
+        return "login";
     }
 
 }
