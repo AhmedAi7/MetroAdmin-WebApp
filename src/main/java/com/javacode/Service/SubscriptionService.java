@@ -29,31 +29,17 @@ public class SubscriptionService implements ISubscriptionService {
     }
 
     @Override
-    public boolean addSubscription(Subscription subscription)
+    public boolean addSubscription(Subscription User_data)
     {
         try {
-            List<Subscription> subscriptions = subscriptionRepo.findAll();
-            boolean isExist = false;
-            for(Subscription sub : subscriptions)
-            {
-                if(subscription.gettrips_num() == sub.gettrips_num() && subscription.getPrice() == sub.getPrice()
-                && subscription.getregion_num() == sub.getregion_num() && subscription.getmonths_num() == sub.getmonths_num())
-                {
-                    isExist = true;
-                    break;
-                }
-            }
-            if (!isExist)
-            {
-                subscriptionRepo.save(subscription);
-                return true;
-            }
-            return false;
+            subscriptionRepo.save(User_data);
+            return true;
         }
         catch (Exception e){
             return false;
         }
     }
+
     @Override
     public boolean updateSubscription(Subscription subscription) {
         Subscription sub = subscriptionRepo.findById(subscription.getSubscription_id()).get();
