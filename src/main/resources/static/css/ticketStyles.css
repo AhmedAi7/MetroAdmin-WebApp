@@ -29,7 +29,9 @@ nav .navbar-nav li a:hover{
 .my-float{
 	margin-top:22px;
 }
-
+.float:hover{
+	color: black;
+}
 .info{
     color: gray;
 }
