@@ -26,15 +26,19 @@ public class BasicTicketController
     public String AddBasicTicket(Model model, String ticketPrice, String ticketLimit)
     {
         basicTicketService.addBasicTicket(Integer.valueOf(ticketPrice), Integer.valueOf(ticketLimit));
+        List<BasicTicket> tickets = selectAllBasicTicket();
         model.addAttribute("message", "Basic Ticket Added Successfully");
-        return "redirect:/BasicTicket";
+        model.addAttribute("tickets", tickets);
+        return "ticket";
     }
     @RequestMapping("/DeleteBasicTicket/{id}")
     public String deleteBasicTicket(Model model, @PathVariable(name = "id") Integer id)
     {
         basicTicketService.deleteBasicTicket(basicTicketService.getBasicTicket(id));
+        List<BasicTicket> tickets = selectAllBasicTicket();
         model.addAttribute("message", "Basic Ticket Deleted Successfully");
-        return "redirect:/BasicTicket";
+        model.addAttribute("tickets", tickets);
+        return "ticket";
     }
 
     @RequestMapping("/EditBasicTicket/{id}")
@@ -49,8 +53,10 @@ public class BasicTicketController
     public String SaveBasicTicket(Model model, @ModelAttribute("basicTicket") BasicTicket basicTicket)
     {
         basicTicketService.updateBasicTicket(basicTicket);
+        List<BasicTicket> tickets = selectAllBasicTicket();
         model.addAttribute("message", "Basic Ticket Updated Successfully");
-        return "redirect:/BasicTicket";
+        model.addAttribute("tickets", tickets);
+        return "ticket";
     }
 
     @RequestMapping("/BasicTicket")

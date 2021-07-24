@@ -10,7 +10,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" th:href="@{/css/ticketStyles.css}">
-
+    <style>
+        .alert{
+            width: 350px;
+        }
+    </style>
 </head>
 <body th:background="@{/images/bg.jpg}">
 
@@ -46,10 +50,14 @@
 
 
 <br><br><br>
-<center th:if="${message != null}">
-    <h3 style="color: green;font-weight: bold;" th:text="${message}"></h3>
+<center>
+    <div th:if="${message != null}" class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong th:text="${message}"></strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
 </center>
-
 <br><br>
 
 <div class="table-responsive">

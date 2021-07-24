@@ -1,6 +1,7 @@
 package com.javacode.Controller;
 
 import com.javacode.Interface.IBasicStationService;
+import com.javacode.Interface.IStationService;
 import com.javacode.Model.Station;
 import com.javacode.payload.request.UpdateStationRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -18,6 +20,7 @@ public class BasicStationController {
 
     @Autowired
     IBasicStationService basicStationService;
+    private IStationService stationService;
 
     @RequestMapping("/AddNewStation")
     public String addStation(Model model, String station_name, String longitude, String latitude, String region,
@@ -100,8 +103,10 @@ public class BasicStationController {
         updateStationRequest.setStation(station);
         updateStationRequest.setId(station.getId());
         String message = updateStation(updateStationRequest);
+        List<Station> stations = stationService.getAllStations();
         model.addAttribute("message", message);
-        return "redirect:/Station";
+        model.addAttribute("stations", stations);
+        return "station";
     }
 
     public String updateStation(UpdateStationRequest updateStationRequest)
