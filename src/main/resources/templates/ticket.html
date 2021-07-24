@@ -13,7 +13,9 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
         <link rel="stylesheet" th:href="@{/css/ticketStyles.css}">
     <style>
-
+        .alert{
+            width: 350px;
+        }
         nav .navbar-nav li a{
             color: white !important;
             font-weight: bold;
@@ -79,10 +81,14 @@
                 </div>
             </div>
         </nav>
-        <br><br><br><br><br><br>
-
-        <center th:if="${message != null}">
-            <h3 style="color: green;font-weight: bold;" th:text="${message}"></h3>
+        <br><br><br>
+        <center>
+            <div th:if="${message != null}" class="alert alert-warning alert-dismissible fade show" role="alert">
+                <strong th:text="${message}"></strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
         </center>
 
         <br><br>
