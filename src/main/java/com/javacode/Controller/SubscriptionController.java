@@ -41,8 +41,10 @@ public class SubscriptionController {
         subscription.setmonths_num(Integer.valueOf(months_num));
         subscription.setregion_num(Integer.valueOf(regions_num));
         String message = addSubscription(subscription);
+        List<Subscription> subscriptions = subscriptionService.getAllSubscription();
         model.addAttribute("message", message);
-        return "redirect:/Subscription";
+        model.addAttribute("subscriptions", subscriptions);
+        return "subscription";
     }
 
     @RequestMapping("/EditSubscription/{id}")
@@ -58,16 +60,20 @@ public class SubscriptionController {
     public String saveSubscription(Model model, @ModelAttribute("subscription") Subscription subscription)
     {
         String message = updateSubscription(subscription);
+        List<Subscription> subscriptions = subscriptionService.getAllSubscription();
         model.addAttribute("message", message);
-        return "redirect:/Subscription";
+        model.addAttribute("subscriptions", subscriptions);
+        return "subscription";
     }
 
     @RequestMapping("/DeleteSubscription/{id}")
     public String deleteSubscription(Model model, @PathVariable(name = "id") Integer id)
     {
         String message = deleteSubscription(id);
+        List<Subscription> subscriptions = subscriptionService.getAllSubscription();
         model.addAttribute("message", message);
-        return "redirect:/Subscription";
+        model.addAttribute("subscriptions", subscriptions);
+        return "subscription";
     }
 
     public Subscription getSubscription(int id)
