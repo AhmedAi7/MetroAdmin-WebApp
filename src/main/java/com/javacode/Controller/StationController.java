@@ -58,7 +58,7 @@ public class StationController {
         return "station";
     }
 
-    @RequestMapping("/UpdateStation")
+    @PostMapping("/UpdateStation")
     public ResponseEntity<?> updateStation(@RequestBody UpdateStationRequest updateStationRequest)
     {
         Map<String, String> map = new HashMap<>();
