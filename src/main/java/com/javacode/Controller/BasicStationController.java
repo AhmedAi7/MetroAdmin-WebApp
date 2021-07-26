@@ -20,6 +20,7 @@ public class BasicStationController {
 
     @Autowired
     IBasicStationService basicStationService;
+    @Autowired
     private IStationService stationService;
 
     @RequestMapping("/AddNewStation")
